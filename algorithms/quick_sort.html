@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sort Algorithm Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #2980b9;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        #intro {
+            background-color: #f1c40f;
+            padding: 10px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        .array-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 20px;
+            height: 250px;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .array-bar {
+            width: 50px;
+            margin: 0 5px;
+            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .highlight {
+            background-color: #e74c3c;
+        }
+
+        .sorted {
+            background-color: #2ecc71;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #explanation {
+            margin-top: 20px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 20px auto;
+            font-size: 1.1em;
+        }
+
+        #complexity {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 20px auto;
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+        pre {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            width: 80%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Quick Sort Algorithm Visualization</h1>
+</header>
+
+<!-- Introduction Explanation -->
+<div id="intro">
+    <p>QuickSort is a divide-and-conquer algorithm that sorts an array by selecting a "pivot" element, 
+       partitioning the array into two parts (elements less than the pivot and elements greater than the pivot), 
+       and recursively sorting the two parts.</p>
+</div>
+
+<p align="center">Click "Next Step" to visualize how the Quick Sort algorithm works!</p>
+
+<!-- Array Visualization -->
+<div class="array-container" id="array-container"></div>
+
+<!-- Explanation -->
+<div id="explanation"></div>
+
+<!-- Navigation Buttons -->
+<div style="text-align: center;">
+    <button onclick="prevStep()">Previous Step</button>
+    <button onclick="nextStep()">Next Step</button>
+</div>
+
+<!-- Time and Space Complexity Explanation -->
+<div id="complexity">
+    <h3>Time and Space Complexity</h3>
+    <p><strong>Time Complexity:</strong></p>
+    <ul>
+        <li><strong>Worst-case:</strong> O(n<sup>2</sup>) - occurs when the pivot always results in unbalanced partitions, for example when the array is already sorted or reversed.</li>
+        <li><strong>Best-case:</strong> O(n log n) - occurs when the pivot divides the array into two roughly equal parts.</li>
+        <li><strong>Average-case:</strong> O(n log n) - happens in most random scenarios where the pivot divides the array into reasonably balanced partitions.</li>
+    </ul>
+
+    <p><strong>Space Complexity:</strong></p>
+    <ul>
+        <li>O(log n) - the recursive call stack space used when QuickSort divides the array in half each time.</li>
+    </ul>
+</div>
+
+<!-- Python Code Implementation Section -->
+<div id="complexity">
+    <h3>Python Code for QuickSort Algorithm</h3>
+    <pre>
+# Python code to implement QuickSort without using any functions
+
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[-1]  # Using the last element as pivot
+    left = [x for x in arr[:-1] if x < pivot]
+    right = [x for x in arr[:-1] if x >= pivot]
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+# Example array to sort
+arr = [6, 5, 3, 1, 8, 7, 2, 4]
+sorted_arr = quick_sort(arr)
+print("Sorted Array:", sorted_arr)
+    </pre>
+</div>
+
+<script>
+// Initial array for sorting
+let array = [6, 5, 3, 1, 8, 7, 2, 4];
+let steps = [];
+let currentStep = 0;
+
+// Generate array bars to visualize the elements
+function generateArrayBars(arr) {
+    const container = document.getElementById("array-container");
+    container.innerHTML = '';  // Clear previous bars
+
+    arr.forEach(value => {
+        const bar = document.createElement("div");
+        bar.classList.add("array-bar");
+        bar.style.height = `${value * 30}px`; // Scaling the height of the bars
+        bar.textContent = value;
+        container.appendChild(bar);
+    });
+}
+
+// Function to swap elements in the array
+function swap(array, i, j) {
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+}
+
+// Track the steps for visualizing the algorithm
+function addToTrace(trace, array, highlighted = [], sorted = []) {
+    trace.push({ array: [...array], highlighted, sorted });
+}
+
+// Quick Sort Algorithm
+function quickSort(array, start, end) {
+    if (start >= end) return;
+
+    const pivot = end; // We pick the last element as the pivot for simplicity
+
+    // Visualize: Mark the pivot
+    addToTrace(steps, array, [pivot]);
+
+    let i = start - 1;
+
+    // Partition the array around the pivot
+    for (let j = start; j <= end - 1; j++) {
+        if (array[j] < array[pivot]) {
+            i++;
+            swap(array, i, j);
+            addToTrace(steps, array, [pivot], [i, j]);
+        }
+    }
+
+    swap(array, i + 1, end); // Move pivot to its correct position
+    addToTrace(steps, array, [i + 1], [i + 1]);
+
+    // Recursively sort the left and right partitions
+    quickSort(array, start, i);
+    quickSort(array, i + 2, end);
+}
+
+// Initialize the steps array and call quickSort
+addToTrace(steps, array);
+quickSort(array, 0, array.length - 1);
+
+// Function to handle the steps and update the visualization
+function nextStep() {
+    if (currentStep < steps.length) {
+        const step = steps[currentStep];
+        generateArrayBars(step.array);
+
+        // Highlight sorted and current elements
+        const bars = document.querySelectorAll('.array-bar');
+        step.highlighted.forEach(index => {
+            bars[index].classList.add("highlight");
+        });
+        step.sorted.forEach(index => {
+            bars[index].classList.add("sorted");
+        });
+
+        // Update explanation dynamically
+        const explanation = document.getElementById("explanation");
+
+        if (currentStep === 0) {
+            explanation.innerHTML = `Step 1: Choosing the Pivot - We pick the last element ${step.array[step.highlighted[0]]} as the pivot. The pivot helps split the array into smaller parts.`;
+        } else if (step.sorted.length > 0) {
+            explanation.innerHTML = `Step ${currentStep + 1}: Moving the Pivot - After partitioning, the pivot ${step.array[step.highlighted[0]]} is now in its correct position.`;
+        } else {
+            explanation.innerHTML = `Step ${currentStep + 1}: Partitioning the Array - Elements are compared with the pivot and placed accordingly.`;
+        }
+
+        currentStep++;
+    } else {
+        document.getElementById("explanation").innerHTML = "<strong>Sorting Complete!</strong> The array is fully sorted.";
+    }
+}
+
+// Function to handle going to the previous step
+function prevStep() {
+    if (currentStep > 0) {
+        currentStep--;
+        const step = steps[currentStep];
+        generateArrayBars(step.array);
+
+        // Highlight sorted and current elements
+        const bars = document.querySelectorAll('.array-bar');
+        step.highlighted.forEach(index => {
+            bars[index].classList.add("highlight");
+        });
+        step.sorted.forEach(index => {
+            bars[index].classList.add("sorted");
+        });
+
+        // Update explanation dynamically
+        const explanation = document.getElementById("explanation");
+
+        if (currentStep === 0) {
+            explanation.innerHTML = `Step 1: Choosing the Pivot - We pick the last element ${step.array[step.highlighted[0]]} as the pivot. The pivot helps split the array into smaller parts.`;
+        } else if (step.sorted.length > 0) {
+            explanation.innerHTML = `Step ${currentStep + 1}: Moving the Pivot - After partitioning, the pivot ${step.array[step.highlighted[0]]} is now in its correct position.`;
+        } else {
+            explanation.innerHTML = `Step ${currentStep + 1}: Partitioning the Array - Elements are compared with the pivot and placed accordingly.`;
+        }
+    }
+}
+</script>
+
+</body>
+</html>
