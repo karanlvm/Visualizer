@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Algorithm Visualizer!</h1>
+        <p>Learn about the fundamental algorithms that help computers solve problems faster and more efficiently. Explore step-by-step explanations, visualizations, and interactive examples!</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. Sorting Algorithms</h2>
+            <p>Sorting algorithms are methods that help organize data, such as numbers or words, into a specific order (like ascending or descending). This is important for many computer operations because sorted data allows computers to work faster and more efficiently.</p>
+            <h3>Why Sorting Algorithms Are Important</h3>
+            <p>Sorting data helps computers quickly find what they are looking for and makes it easier to manage large amounts of information. It’s like organizing a messy bookshelf — once everything is in order, finding a specific book becomes much faster.</p>
+            <h3>Key Sorting Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/quick_sort.html">Quick Sort</a>: One of the fastest sorting algorithms, it works by dividing a list into smaller parts and sorting them. Think of it like organizing your bookshelf by repeatedly picking a section to sort until everything is in place.</li>
+                <li><a href="algorithms/merge_sort.html">Merge Sort</a>: This method divides the list into two halves, sorts each half, and then combines them back together in order. It’s like splitting your bookshelf in half, organizing each part, and then merging them into a perfect order.</li>
+                <li><a href="algorithms/heap_sort.html">Heap Sort</a>: Builds a special tree-like structure called a "heap" and uses it to sort the data. It’s like using a ladder to sort the books — each book is placed in the correct order based on its size as you climb higher.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Search Algorithms</h2>
+            <p>Search algorithms help computers find specific items in a large collection of data. Whether you’re searching for a word in a book or a friend on social media, these algorithms make sure the search is done quickly and efficiently.</p>
+            <h3>Why Search Algorithms Are Useful</h3>
+            <p>Imagine looking for a single word in a dictionary. Searching the entire dictionary would be slow, but if it’s already sorted alphabetically, finding the word becomes much faster. Search algorithms optimize this process to help computers find information quickly.</p>
+            <h3>Key Search Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/linear_search.html">Linear Search</a>: The simplest search method, where you check each item one by one until you find what you’re looking for. Think of it like flipping through a book page by page.</li>
+                <li><a href="algorithms/binary_search.html">Binary Search</a>: A much faster search method, but it only works on sorted data. It repeatedly divides the data in half and checks if the target is in the first half or the second half. It’s like looking for a word in a dictionary by opening it in the middle and narrowing down your search each time.</li>
+                <li><a href="algorithms/dfs_bfs.html">DFS & BFS</a>: Depth-First Search (DFS) and Breadth-First Search (BFS) are used to explore all the possibilities in a tree or graph structure. Think of it like trying to explore every room in a building, one by one (DFS), or checking each floor before moving to the next (BFS).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Hashing Algorithms</h2>
+            <p>Hashing algorithms convert large data into a fixed-size value (a "hash"). This helps store and retrieve data quickly, similar to how a library assigns each book a unique call number to make it easy to find.</p>
+            <h3>Why Hashing Is Important</h3>
+            <p>Hashing makes looking up data easier and faster, especially when dealing with large amounts of information. It’s like creating an index for a book, allowing you to quickly jump to the exact page where the information is stored.</p>
+            <h3>Key Hashing Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/hash_tables.html">Hash Tables</a>: Uses a special function to turn a piece of data into an index that can quickly be looked up. It's like creating a map that tells you exactly where to find the item you need.</li>
+                <li><a href="algorithms/cryptographic_hash.html">Cryptographic Hash Functions</a>: Ensure data integrity by creating a unique identifier for each input. This is especially important in security applications, where verifying the authenticity of data is crucial.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Dynamic Programming Algorithms</h2>
+            <p>Dynamic programming is a technique used to solve problems by breaking them into smaller overlapping subproblems. It stores the results of these subproblems to avoid solving them multiple times, saving time and resources.</p>
+            <h3>Why Dynamic Programming Is Useful</h3>
+            <p>Think of dynamic programming like solving a puzzle. Instead of solving the same small piece of the puzzle over and over, you remember the solution to each piece and build on it. This makes the entire process much faster.</p>
+            <h3>Key Dynamic Programming Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/fibonacci_sequence.html">Fibonacci Sequence Calculation</a>: Calculates numbers in a sequence where each number is the sum of the two preceding ones. By storing previously computed numbers, it avoids recalculating them.</li>
+                <li><a href="algorithms/knapsack_problem.html">Knapsack Problem</a>: Helps choose the best combination of items to maximize value while staying within a weight limit, using dynamic programming to make decisions step by step.</li>
+                <li><a href="algorithms/shortest_path.html">Shortest Path Algorithms</a>: Used to find the shortest path between two points in a graph, like finding the quickest route on a map.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Graph Algorithms</h2>
+            <p>Graph algorithms are used to solve problems related to networks, such as finding the shortest path between two cities or figuring out how connected different people are on a social network.</p>
+            <h3>Why Graph Algorithms Matter</h3>
+            <p>Graphs represent a wide variety of real-world problems, from social networks to traffic systems. Graph algorithms help us analyze and solve problems in these networks more efficiently.</p>
+            <h3>Key Graph Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/dijkstra_algorithm.html">Dijkstra’s Algorithm</a>: Finds the shortest path between two points in a graph, like finding the fastest route on a map.</li>
+                <li><a href="algorithms/minimum_spanning_tree.html">Kruskal’s and Prim’s Algorithms</a>: Used to find the most efficient way to connect all points in a network without any loops.</li>
+                <li><a href="algorithms/a_star_algorithm.html">A* Search Algorithm</a>: Combines the advantages of both Dijkstra’s Algorithm and greedy methods to find the shortest path more efficiently.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Greedy Algorithms</h2>
+            <p>Greedy algorithms solve problems by choosing the best option available at each step, aiming to find the overall optimal solution. They are often used when a problem has an optimal substructure, meaning the problem can be solved by making the best choice at each step.</p>
+            <h3>Why Greedy Algorithms Are Useful</h3>
+            <p>Greedy algorithms are efficient because they make the optimal choice at each step, aiming for an overall solution in a quick and computationally inexpensive manner.</p>
+            <h3>Key Greedy Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/huffman_coding.html">Huffman Coding</a>: A method for compressing data, making it smaller without losing any information.</li>
+                <li><a href="algorithms/activity_selection.html">Activity Selection Problem</a>: Helps choose the maximum number of activities that don’t overlap, like selecting the most events to attend in a day.</li>
+                <li><a href="algorithms/coin_change_problem.html">Coin Change Problem</a>: Finds the minimum number of coins needed to make a certain amount of change.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Recursive Algorithms</h2>
+            <p>Recursive algorithms solve problems by solving smaller instances of the same problem, often calling themselves in the process. This approach simplifies solving problems that have a repetitive structure.</p>
+            <h3>Why Recursive Algorithms Are Useful</h3>
+            <p>Recursion is a powerful technique that simplifies the code and provides elegant solutions to problems with repetitive patterns or structures.</p>
+            <h3>Key Recursive Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/tower_of_hanoi.html">Tower of Hanoi</a>: Solves the puzzle by moving disks between pegs recursively.</li>
+                <li><a href="algorithms/quick_sort.html">Quick Sort</a>: A fast sorting algorithm that works by recursively dividing a list into smaller parts and sorting them.</li>
+                <li><a href="algorithms/tree_traversals.html">Tree Traversals</a>: Includes in-order, pre-order, and post-order traversals for exploring binary trees.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. String Matching Algorithms</h2>
+            <p>String matching algorithms help find occurrences of a substring (a small piece of text) within a larger string. These are essential for tasks like text searching in editors or databases.</p>
+            <h3>Why String Matching Algorithms Are Important</h3>
+            <p>String matching is used in many everyday applications, such as searching for keywords in a document or looking up a phrase in a search engine.</p>
+            <h3>Key String Matching Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/kmp_algorithm.html">Knuth-Morris-Pratt (KMP) Algorithm</a>: An efficient algorithm for string matching that avoids unnecessary comparisons.</li>
+                <li><a href="algorithms/rabin_karp_algorithm.html">Rabin-Karp Algorithm</a>: Uses hashing to find a set of pattern strings in a larger text.</li>
+                <li><a href="algorithms/boyer_moore_algorithm.html">Boyer-Moore Algorithm</a>: A fast pattern-matching algorithm that skips sections of the text for quicker results.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>9. Cryptographic Algorithms</h2>
+            <p>Cryptographic algorithms are used to secure information by encrypting and decrypting data. They are essential for privacy, ensuring that only authorized users can access sensitive information.</p>
+            <h3>Why Cryptographic Algorithms Are Crucial</h3>
+            <p>With the increasing importance of data security, cryptographic algorithms ensure that our online activities, such as banking and messaging, remain private and protected from unauthorized access.</p>
+            <h3>Key Cryptographic Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/rsa_algorithm.html">RSA Algorithm</a>: A widely used algorithm for secure data transmission, ensuring the privacy of communication.</li>
+                <li><a href="algorithms/aes_algorithm.html">AES (Advanced Encryption Standard)</a>: A widely used encryption algorithm to secure sensitive data.</li>
+                <li><a href="algorithms/sha_algorithm.html">SHA (Secure Hash Algorithms)</a>: Used to verify data integrity by creating unique hash values for each input.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>10. Machine Learning Algorithms</h2>
+            <p>Machine learning algorithms enable computers to learn from data, improving performance over time without being explicitly programmed. These algorithms are foundational in areas like data prediction, pattern recognition, and decision-making.</p>
+            <h3>Why Machine Learning Algorithms Are Important</h3>
+            <p>As data continues to grow, machine learning algorithms provide the ability to extract useful patterns and make predictions, allowing computers to "learn" and improve from experience.</p>
+            <h3>Key Machine Learning Algorithms</h3>
+            <ul>
+                <li><a href="algorithms/linear_regression.html">Linear Regression</a>: A simple algorithm used for predicting a value based on past data.</li>
+                <li><a href="algorithms/decision_trees.html">Decision Trees</a>: Used for both classification and regression tasks by splitting data into branches based on decisions.</li>
+                <li><a href="algorithms/neural_networks.html">Neural Networks</a>: Complex algorithms that mimic the human brain to recognize patterns and make predictions in complex problems.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Algorithm Visualizer by Karan Vasudevamurthy. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
